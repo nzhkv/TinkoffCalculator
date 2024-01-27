@@ -270,7 +270,7 @@
                                     <constraint firstItem="67Z-GP-WwE" firstAttribute="leading" secondItem="a2c-5Q-Vtd" secondAttribute="leading" id="yqt-iN-fc6"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="B7L-KJ-Xzl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="B7L-KJ-Xzl">
                                 <rect key="frame" x="20" y="217.33333333333334" width="353" height="71.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <nil key="textColor"/>

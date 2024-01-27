@@ -22,7 +22,7 @@ enum Operation: String {
         case .add: return numberOne + numberTwo
         case .substract: return numberOne - numberTwo
         case .miltyply: return numberOne * numberTwo
-        case . divide: 
+        case . divide:
             if numberTwo == 0 {
                 throw CalculationErrors.dividedByZero
             }
@@ -39,7 +39,7 @@ enum CalculationHistoryItem {
 
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var label: UILabel!
     
     var calculationHistory: [CalculationHistoryItem] = []
@@ -54,6 +54,12 @@ class ViewController: UIViewController {
         return numberFormatter
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        resetLabelText()
+    }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         guard let textButton = sender.titleLabel?.text else { return }
         
@@ -67,16 +73,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operationButtonTapped(_ sender: UIButton) {
-        guard 
+        guard
             let textButton = sender.titleLabel?.text,
-            let buttonOperation = Operation(rawValue: textButton) 
-            else { return }
+            let buttonOperation = Operation(rawValue: textButton)
+        else { return }
         
         guard
             let labelText = label.text,
-            let labelNumber = numberFormatter.number(from: labelText)?.doubleValue 
-            else { return }
-        
+            let labelNumber = numberFormatter.number(from: labelText)?.doubleValue
+        else { return }
+
         calculationHistory.append(.number(labelNumber))
         calculationHistory.append(.operation(buttonOperation))
         
@@ -92,7 +98,7 @@ class ViewController: UIViewController {
         guard
             let labelText = label.text,
             let labelNumber = numberFormatter.number(from: labelText)?.doubleValue
-            else { return }
+        else { return }
         
         calculationHistory.append(.number(labelNumber))
         
@@ -126,13 +132,5 @@ class ViewController: UIViewController {
     func resetLabelText() {
         label.text = "0"
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        resetLabelText()
-    }
-
-
 }
 
