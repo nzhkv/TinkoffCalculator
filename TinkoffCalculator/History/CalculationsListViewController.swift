@@ -9,8 +9,10 @@ import UIKit
 
 class CalculationsListViewController: UIViewController {
     
-    var result: String?
+    var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
+    
     @IBOutlet weak var calculationLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -22,13 +24,16 @@ class CalculationsListViewController: UIViewController {
         initialize()
     }
     
-    private func initialize() {
-        modalPresentationStyle = .fullScreen
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculationLabel.text = result
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let nib = UINib(nibName: "HistoryTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "HistoryTableViewCell")
+        
+        addDateHeaderToTableView(tableView: tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +41,67 @@ class CalculationsListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    private func initialize() {
+        modalPresentationStyle = .fullScreen
+    }
+    
     @IBAction func dismisVC(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    private func expressionToString(_ expression: [CalculationHistoryItem]) -> String {
+        var result = ""
+        
+        for operand in expression {
+            switch operand {
+            case let .number(value):
+                result += String(value) + " "
+            case let .operation(value):
+                result += value.rawValue + " "
+            }
+        }
+        return result
+    }
+    
+    private func addDateHeaderToTableView(tableView: UITableView) {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 50))
+        headerView.backgroundColor = UIColor.systemBackground
+
+        let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width - 32, height: 50))
+        headerLabel.textColor = UIColor.label
+        headerLabel.textAlignment = .center
+        headerLabel.font = UIFont.systemFont(ofSize: 16)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let currentDate = dateFormatter.string(from: Date())
+        headerLabel.text = currentDate
+
+        headerView.addSubview(headerLabel)
+        tableView.tableHeaderView = headerView
+    }
+}
+
+extension CalculationsListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+}
+
+extension CalculationsListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calculations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
+        let historyItem = calculations[indexPath.row]
+        
+        cell.configure(with: expressionToString(historyItem.expression), result: String(historyItem.result))
+        return cell
+    }
+    
+    
 }

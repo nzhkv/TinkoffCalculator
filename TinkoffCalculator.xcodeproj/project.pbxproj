@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E74C2842B6A6E2B00D2CF70 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E74C2832B6A6E2B00D2CF70 /* HistoryTableViewCell.swift */; };
+		2E74C2862B6A6F5F00D2CF70 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E74C2852B6A6F5F00D2CF70 /* HistoryTableViewCell.xib */; };
 		2EA59AD22B627887002D7D98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59AD12B627887002D7D98 /* AppDelegate.swift */; };
 		2EA59AD42B627887002D7D98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59AD32B627887002D7D98 /* SceneDelegate.swift */; };
 		2EA59AD62B627887002D7D98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA59AD52B627887002D7D98 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E74C2832B6A6E2B00D2CF70 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		2E74C2852B6A6F5F00D2CF70 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		2EA59ACE2B627887002D7D98 /* TinkoffCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA59AD12B627887002D7D98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EA59AD32B627887002D7D98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E74C2822B6A6DF400D2CF70 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				2EA59B012B6524E6002D7D98 /* CalculationsListViewController.swift */,
+				2E74C2832B6A6E2B00D2CF70 /* HistoryTableViewCell.swift */,
+				2E74C2852B6A6F5F00D2CF70 /* HistoryTableViewCell.xib */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		2EA59AC52B627887002D7D98 = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +115,10 @@
 		2EA59AD02B627887002D7D98 /* TinkoffCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				2E74C2822B6A6DF400D2CF70 /* History */,
 				2EA59AD12B627887002D7D98 /* AppDelegate.swift */,
 				2EA59AD32B627887002D7D98 /* SceneDelegate.swift */,
 				2EA59AD52B627887002D7D98 /* ViewController.swift */,
-				2EA59B012B6524E6002D7D98 /* CalculationsListViewController.swift */,
 				2EA59AD72B627887002D7D98 /* Main.storyboard */,
 				2EA59ADA2B627889002D7D98 /* Assets.xcassets */,
 				2EA59ADC2B627889002D7D98 /* LaunchScreen.storyboard */,
@@ -236,6 +250,7 @@
 			files = (
 				2EA59ADE2B627889002D7D98 /* LaunchScreen.storyboard in Resources */,
 				2EA59ADB2B627889002D7D98 /* Assets.xcassets in Resources */,
+				2E74C2862B6A6F5F00D2CF70 /* HistoryTableViewCell.xib in Resources */,
 				2EA59AD92B627887002D7D98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +280,7 @@
 				2EA59AD62B627887002D7D98 /* ViewController.swift in Sources */,
 				2EA59AD22B627887002D7D98 /* AppDelegate.swift in Sources */,
 				2EA59AD42B627887002D7D98 /* SceneDelegate.swift in Sources */,
+				2E74C2842B6A6E2B00D2CF70 /* HistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -304,11 +304,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Калькулятор" id="AkX-71-H6R"/>
                     <connections>
+                        <outlet property="historyButton" destination="OAN-Uw-uIv" id="WK7-TM-o21"/>
                         <outlet property="label" destination="B7L-KJ-Xzl" id="AH3-dC-PdV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="uS1-n2-p6W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1046.5648854961833" y="3.5211267605633805"/>
         </scene>
@@ -326,36 +326,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5O6-Gd-bPx">
-                                <rect key="frame" x="151.33333333333334" y="462.33333333333331" width="90.666666666666657" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Закрыть"/>
-                                <connections>
-                                    <action selector="dismisVC:" destination="Cgy-K7-kCw" eventType="touchUpInside" id="ey3-8y-3gI"/>
-                                    <segue destination="uS1-n2-p6W" kind="unwind" unwindAction="unwindActionhWithUnwindSegue:" id="3oY-Hv-qgh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhX-Ds-O0O">
-                                <rect key="frame" x="154.66666666666666" y="367.33333333333331" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EJf-Lk-nkX">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qeQ-HE-tO7"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
-                            <constraint firstItem="5O6-Gd-bPx" firstAttribute="centerX" secondItem="jLO-Ta-FIY" secondAttribute="centerX" id="3AI-1p-pRO"/>
-                            <constraint firstItem="DhX-Ds-O0O" firstAttribute="centerX" secondItem="jLO-Ta-FIY" secondAttribute="centerX" id="KqL-MJ-HWE"/>
+                            <constraint firstItem="EJf-Lk-nkX" firstAttribute="leading" secondItem="qeQ-HE-tO7" secondAttribute="leading" id="1re-WJ-PzR"/>
+                            <constraint firstItem="qeQ-HE-tO7" firstAttribute="bottom" secondItem="EJf-Lk-nkX" secondAttribute="bottom" id="RWW-qc-c6W"/>
                             <constraint firstItem="LMi-F1-10P" firstAttribute="centerX" secondItem="jLO-Ta-FIY" secondAttribute="centerX" id="bfN-0O-3gd"/>
-                            <constraint firstItem="5O6-Gd-bPx" firstAttribute="top" secondItem="LMi-F1-10P" secondAttribute="bottom" constant="36.333333333333314" id="nvd-3d-rja"/>
+                            <constraint firstItem="qeQ-HE-tO7" firstAttribute="trailing" secondItem="EJf-Lk-nkX" secondAttribute="trailing" id="dLb-Yp-Sgw"/>
+                            <constraint firstItem="EJf-Lk-nkX" firstAttribute="top" secondItem="qeQ-HE-tO7" secondAttribute="top" id="fOS-0K-hL4"/>
                             <constraint firstItem="LMi-F1-10P" firstAttribute="centerY" secondItem="jLO-Ta-FIY" secondAttribute="centerY" id="nvu-Kh-4Vw"/>
-                            <constraint firstItem="LMi-F1-10P" firstAttribute="top" secondItem="DhX-Ds-O0O" secondAttribute="bottom" constant="37.666666666666686" id="ts0-vb-C0f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Прошлые вычисления" id="YIQ-wT-rHt"/>
                     <connections>
                         <outlet property="calculationLabel" destination="LMi-F1-10P" id="x1G-f4-iMv"/>
+                        <outlet property="tableView" destination="EJf-Lk-nkX" id="wAD-qV-YDL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOO-xv-JS1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
